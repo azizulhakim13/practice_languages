@@ -23,18 +23,19 @@
         if(isset($_POST["card"])){
             $card = $_POST["card"];
         }
-       
-        if($card == "Visa"){
-            echo "You selected Visa";
-        }
-        elseif($card == "Mastercard"){
-            echo "You Selected Mastercard";
-        }
-        elseif($card == "Express"){
-            echo "You Selected Express";
-        }
-        else {
-            echo "Please select a option";
+
+        switch($card){
+            case "Visa":
+                echo "You selected Visa";
+                break;
+            case "Mastercard":
+                echo "You Selected Mastercard";
+                break;
+            case "Express":
+                echo "You Selected Express";
+                break;
+            default:
+                echo "Please select a option";
         }
     }
 ?>

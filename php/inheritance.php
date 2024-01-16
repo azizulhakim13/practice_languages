@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        class fruit {
+        class Fruit {
             public $name;
             public $color;
 
@@ -22,7 +22,7 @@
             }
         }
 
-        class Cherry extends fruit {
+        class Cherry extends Fruit {
             public function message(){
                 echo "Is cherry a fruit or berry? <br /.>";
             }

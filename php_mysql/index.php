@@ -11,18 +11,22 @@
         <div class="container py-5">
             <h2 class="pb-3">Registration Form:</h2>
             <form action="connect.php" method="post">
-                <label for="user">Name: </label><br>
-                <input type="text" name="name" id="name" required><br><br>
-
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" id="email" required><br><br>
-
-                <label for="phone">Phone:</label><br>
-                <input type="text" name="phone" id="phone" required><br><br>
-
-                <label for="bgroup">Blood Group:</label><br>
-                <input type="text" name="bgroup" id="bgroup" required><br><br>
-
+                <div class="mb-3">
+                    <label for="user">Name: </label><br>
+                    <input class="py-1 px-3 rounded" type="text" name="name" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email:</label><br>
+                    <input class="py-1 px-3 rounded" type="email" name="email" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone">Phone:</label><br>
+                    <input class="py-1 px-3 rounded" type="text" name="phone" id="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bgroup">Blood Group:</label><br>
+                    <input class="py-1 px-3 rounded" type="text" name="bgroup" id="bgroup" required>
+                </div>
                 <input class="btn btn-dark" type="submit" name="submit" id="submit">         
             </form>
         </div>

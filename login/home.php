@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION['id']) && isset($_SESSION['user_name'])){
+    if(isset($_SESSION['id']) && isset($_SESSION['username'])){
         ?>
 
 
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container pt-5">
-        <h1>Hello <?php echo $_SESSION['user_name']; ?></h1>
+        <h1>Hello <?php echo $_SESSION['username']; ?></h1>
         <a href="logout.php">Logout</a>
     </div>
 

@@ -3,7 +3,7 @@ session_start();
 include "db_conn.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $uname = $_POST['uname'];
+    $uname = $_POST['username'];
     $pass = $_POST['password'];
 
     // Validate input (you can add more validation if needed)
@@ -12,21 +12,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
-    $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
-    $result = mysqli_query($conn, $sql);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param('s', $uname);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result) {
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
 
-            $_SESSION['user_name'] = $row['user_name'];
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['id'];
+            // Verify password using password_verify
+            if (password_verify($pass, $row['password'])) {
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['id'] = $row['id'];
 
-            header("Location: home.php");
-            exit();
+                header("Location: home.php");
+                exit();
+            } else {
+                header("Location: index.php?error=Incorrect password");
+                exit();
+            }
         } else {
-            header("Location: index.php?error=Incorrect username or password");
+            header("Location: index.php?error=User not found");
             exit();
         }
     } else {

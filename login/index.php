@@ -17,10 +17,10 @@
             <?php } ?>
             <div class="mb-3">
                 <label for="phone">User name:</label>
-                <input type="text" name="uname" class="form-control" placeholder="Enter User Name" required>
+                <input type="text" name="username" class="form-control" placeholder="Enter User Name" required>
             </div>
             <div class="mb-3">
-                <label for="phone">Password:</label>
+                <label for="password">Password:</label>
                 <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
             </div>
             <button type="submit" class="btn btn-dark px-4">Login</button>
